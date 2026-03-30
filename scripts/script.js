@@ -1,9 +1,14 @@
 function handleClick(value){
-    let expression = document.getElementById('display');
-    if (expression.value == 0){
-        expression.value = value
+    const display = document.getElementById('display');
+    if (display.value === "0"){
+        display.value = "";
+    } 
+    if (value === "*") {
+        display.value += "x";
+    } else if (value === "/"){
+        display.value += "÷";
     } else {
-        expression.value += value
+        display.value += value;
     }
 }
 
@@ -13,9 +18,16 @@ function clearDisplay(){
 }
 
 function handleCalculate(){
-    let displayArea = document.getElementById('display')
+    const displayArea = document.getElementById('display')
     let expression = document.getElementById('display').value;
-    displayArea.value = eval(expression)
+    
+    expression = expression.replace(/x/g, "*").replace(/÷/g, "/");
+
+    try {
+        displayArea.value = eval(expression);
+    } catch {
+        display.value = "Error";
+    }
 }
 
 function backspace(){
