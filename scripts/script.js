@@ -22,7 +22,7 @@ document.addEventListener("keydown", function (event) {
     else if (key === "Backspace") backspace();
 
     // Escape = clear
-    else if (key === "Escape") clearDisplay();
+    else if (key === "Delete") clearDisplay();
 
     // Percent
     else if (key === "%") handleClick("%");
