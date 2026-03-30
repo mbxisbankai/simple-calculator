@@ -1,3 +1,33 @@
+document.addEventListener("keydown", function (event) {
+    const key = event.key;
+
+    // Numbers
+    if (!isNaN(key)) {
+        handleClick(key);
+    }
+
+    // Operators
+    else if (key === "+") handleClick("+");
+    else if (key === "-") handleClick("-");
+    else if (key === "*") handleClick("*");
+    else if (key === "/") handleClick("/");
+
+    // Decimal
+    else if (key === ".") handleClick(".");
+
+    // Enter = calculate
+    else if (key === "Enter") handleCalculate();
+
+    // Backspace
+    else if (key === "Backspace") backspace();
+
+    // Escape = clear
+    else if (key === "Escape") clearDisplay();
+
+    // Percent
+    else if (key === "%") handleClick("%");
+});
+
 function handleClick(value){
     const display = document.getElementById('display');
     if (display.value === "0"){
