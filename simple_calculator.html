@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<script src="/scripts/script.js"></script>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+    }
+
+    .calculator {
+        width: 320px;
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .display {
+        width: 100%;
+        height: 80px;
+        background: #ffffff;
+        color: #000;
+        text-align: right;
+        font-size: 40px;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
+    button {
+        height: 65px;
+        border-radius: 8px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    .number {
+        background: #e0e0e0;
+        color: black;
+    }
+
+    .number:hover {
+        background: #d5d5d5;
+    }
+
+    .operator {
+        background: #007bff;
+        color: white;
+    }
+
+    .operator:hover {
+        background: #0069d9;
+    }
+
+    .function {
+        background: #cfcfcf;
+        color: black;
+    }
+
+    .zero {
+        grid-column: span 2;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <input id="display" type="text" class="display" value="0" disabled>
+
+    <div class="buttons">
+        <button onclick=clearDisplay() class="function">AC</button>
+        <button onclick="handleClick('/')" class="function">÷</button>
+        <button onclick="handleClick('%')" class="function">%</button>
+        <button onclick="backspace()" class="function">⌫</button>
+
+        <button onclick="handleClick('7')" class="number">7</button>
+        <button onclick="handleClick('8')" class="number">8</button>
+        <button onclick="handleClick('9')" class="number">9</button>
+        <button onclick="handleClick('*')" class="operator">×</button>
+
+        <button onclick="handleClick('4')" class="number">4</button>
+        <button onclick="handleClick('5')" class="number">5</button>
+        <button onclick="handleClick('6')" class="number">6</button>
+        <button onclick="handleClick('-')" class="operator">−</button>
+
+        <button onclick="handleClick('1')" class="number">1</button>
+        <button onclick="handleClick('2')" class="number">2</button>
+        <button onclick="handleClick('3')" class="number">3</button>
+        <button onclick="handleClick('+')" class="operator">+</button>
+
+        <button onclick="handleClick('0')" class="number zero">0</button>
+        <button onclick="handleClick('.')" class="number">.</button>
+        <button onclick="handleCalculate()" class="operator">=</button>
+    </div>
+</div>
+
+</body>
+</html>
